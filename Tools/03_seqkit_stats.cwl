@@ -22,9 +22,19 @@ inputs:
     type: File
     label: "Input fasta file"
     doc: "Input fasta file"
+    default:
+      class: File
+      location: ../out/all_contigs_SRR27548858.fa
 
 outputs:
-  - 
+  - id: all-for-debugging
+    type:
+      type: array
+      items: [File, Directory]
+    outputBinding:
+      glob: "*"
+
+stdout: $(inputs.input_contigs_fasta_file.basename).stats.txt
 
 hints:
   - class: DockerRequirement

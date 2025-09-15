@@ -1,3 +1,5 @@
-Data/
+Data/*
 cwl_cache/
 contigs_megahit/
+/out/*
+!/out/all_contigs_SRR27548858.fa.stats.txt

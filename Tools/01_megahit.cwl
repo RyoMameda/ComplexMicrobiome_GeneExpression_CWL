@@ -44,12 +44,12 @@ arguments:
       megahit -1 $(inputs.fastq_1.path) -2 $(inputs.fastq_2.path) -o $(inputs.output_dir_name) -t $(inputs.threads)
 
 outputs:
-  - id: all-for-debugging
-    type:
-      type: array
-      items: [File, Directory]
+  - id: final_contigs_fasta_file
+    type: File
+    label: "Final contigs fasta file"
+    doc: "Final contigs fasta file"
     outputBinding:
-      glob: "*"
+      glob: "$(inputs.output_dir_name)/final.contigs.fa"
 
 hints:
   - class: DockerRequirement

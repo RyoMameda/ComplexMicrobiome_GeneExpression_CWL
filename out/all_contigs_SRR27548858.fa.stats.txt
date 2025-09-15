@@ -1,0 +1,2 @@
+file	format	type	num_seqs	sum_len	min_len	avg_len	max_len	Q1	Q2	Q3	sum_gap	N50	N50_num	Q20(%)	Q30(%)	AvgQual	GC(%)	sum_n
+/var/lib/cwl/stgcb511a82-74f6-48f3-804f-33d1c3de8f44/all_contigs_SRR27548858.fa	FASTA	DNA	1177556	848008836	200	720.1	148990	364.0	479.0	709.0	0	786	9697	0.00	0.00	0.00	52.41	0
