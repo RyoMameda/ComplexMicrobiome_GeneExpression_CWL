@@ -15,14 +15,14 @@ inputs:
   - id: fastq_1
     type: File
     label: "Forward reads file (_1_trim.fastq.gz)"
-    doc: "Forward reads file (_1_trim.fastq.gz)"
+    doc: "genomic forward reads file (_1_trim.fastq.gz)"
     default:
       class: File
       location: ../Data/SRR27548858_1_trim.fastq.gz
   - id: fastq_2
     type: File
     label: "Reverse reads file (_2_trim.fastq.gz)"
-    doc: "Reverse reads file (_2_trim.fastq.gz)"
+    doc: "genomic reverse reads file (_2_trim.fastq.gz)"
     default:
       class: File
       location: ../Data/SRR27548858_2_trim.fastq.gz
