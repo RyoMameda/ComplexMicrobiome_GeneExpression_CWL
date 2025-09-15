@@ -1,7 +1,3 @@
-*
-!Tools/
-!scripts/
-!.devcontainer/
-!.gitignore
-!LICENSE
-!README.md
+Data/
+cwl_cache/
+contigs_megahit/
