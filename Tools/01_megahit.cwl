@@ -9,10 +9,15 @@ doc: |
 
 baseCommand: [megahit]
 
-requirements:
-  ShellCommandRequirement: {}
-  WorkReuse:
-    enableReuse: true
+arguments:
+  - -1
+  - $(inputs.fastq_1.path)
+  - -2
+  - $(inputs.fastq_2.path)
+  - -o
+  - $(inputs.output_dir_name)
+  - -t
+  - $(inputs.threads)
 
 inputs:
   - id: fastq_1
@@ -40,17 +45,11 @@ inputs:
     doc: "Number of threads to use"
     default: 8
 
-
-arguments:
-  - shellQuote: false
-    valueFrom: |
-      megahit -1 $(inputs.fastq_1.path) -2 $(inputs.fastq_2.path) -o $(inputs.output_dir_name) -t $(inputs.threads)
-
 outputs:
   - id: final_contigs_fasta_file
     type: File
     label: "Final contigs fasta file"
-    doc: "Final contigs fasta file"
+    doc: "Final metagenomic contigs fasta file"
     outputBinding:
       glob: "$(inputs.output_dir_name)/final.contigs.fa"
 
