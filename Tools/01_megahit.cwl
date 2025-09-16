@@ -1,9 +1,10 @@
 #!/usr/bin/env cwl-runner
 class: CommandLineTool
 cwlVersion: v1.2
-label: "metagenome assembly process using megahit"
+label: "metagenome assembly process using MEGAHIT"
 doc: |
-  "metagenome assembly process using megahit
+  "metagenome assembly process using MEGAHIT
+  Input files are trimmed metagenomic fastq which obtained from 00_fastp.cwl, the metagenomic contigs are outputs.
   Original script: https://github.com/RyoMameda/workflow/blob/main/03_assembly.sh"
 
 requirements:
