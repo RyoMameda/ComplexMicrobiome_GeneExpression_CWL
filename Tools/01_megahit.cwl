@@ -10,10 +10,10 @@ doc: |
 baseCommand: [megahit]
 
 arguments:
-  - -1
-  - $(inputs.fastq_1.path)
-  - -2
-  - $(inputs.fastq_2.path)
+  - prefix: -1
+    valueFrom: $(inputs.fastq_1.path)
+  - prefix: -2
+    valueFrom: $(inputs.fastq_2.path)
   - -o
   - $(inputs.output_dir_name)
   - -t
