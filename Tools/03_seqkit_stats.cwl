@@ -39,3 +39,7 @@ stdout: $(inputs.input_contigs_fasta_file.basename).stats.txt
 hints:
   - class: DockerRequirement
     dockerPull: quay.io/biocontainers/seqkit:2.10.0--h9ee0642_0
+
+$namespaces:
+  s: https://schema.org/
+  edam: https://edamontology.org/

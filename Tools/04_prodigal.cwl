@@ -78,3 +78,7 @@ outputs:
 hints:
   - class: DockerRequirement
     dockerPull: quay.io/biocontainers/prodigal:2.6.3--h031d066_6
+
+$namespaces:
+  s: https://schema.org/
+  edam: https://edamontology.org/

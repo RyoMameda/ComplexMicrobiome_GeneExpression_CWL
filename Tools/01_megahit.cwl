@@ -35,7 +35,7 @@ inputs:
     type: int
     label: "Number of threads to use"
     doc: "Number of threads to use"
-    default: 16
+    default: 8
 
 
 arguments:
@@ -54,3 +54,7 @@ outputs:
 hints:
   - class: DockerRequirement
     dockerPull: quay.io/biocontainers/megahit:1.2.6--h8b12597_0
+
+$namespaces:
+  s: https://schema.org/
+  edam: https://edamontology.org/

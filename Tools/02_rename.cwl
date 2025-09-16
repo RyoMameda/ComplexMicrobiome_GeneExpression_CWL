@@ -40,3 +40,7 @@ outputs:
 hints:
   - class: DockerRequirement
     dockerPull: quay.io/biocontainers/ubuntu:24.04
+
+$namespaces:
+  s: https://schema.org/
+  edam: https://edamontology.org/
