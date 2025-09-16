@@ -4,21 +4,30 @@ cwlVersion: v1.2
 label: "bwa index process"
 doc: |
   "bwa index create process for executing bwa mem process
+  modified from https://github.com/common-workflow-library/bio-cwl-tools/blob/release/bwa/BWA-Index.cwl
   original script: https://github.com/RyoMameda/workflow/blob/main/05_mapping.sh
   original command: bwa index -p index_${f}_bwa ${f}.fna"
 
 requirements:
   WorkReuse:
     enableReuse: true
-
-baseCommand: [bwa, index]
+  ShellCommandRequirement: {}
 
 arguments:
-  - -p
-  - $(inputs.index_bwa_name)
-  - $(inputs.input_fasta_file.path)
+  - shellQuote: false
+    valueFrom: |
+      mkdir -p $(inputs.index_bwa_dir_name)
+      touch $(inputs.index_bwa_dir_name)/$(inputs.index_bwa_name) # create empty file
+      bwa index -p $(inputs.index_bwa_dir_name)/$(inputs.index_bwa_name) $(inputs.input_fasta_file.path)
 
 inputs:
+
+  - id: index_bwa_dir_name
+    type: string
+    label: "index bwa dir name"
+    doc: "index bwa dir name"
+    default: "index_bwa_dir"
+
   - id: index_bwa_name
     type: string
     label: "index bwa name"
@@ -34,12 +43,33 @@ inputs:
       location: ../out/all_contigs_SRR27548858_dna.fasta
 
 outputs:
-  - id: all-for-debugging
-    type:
-      type: array
-      items: [File, Directory]
+  # - id: all-for-debugging
+  #   type:
+  #     type: array
+  #     items: [File, Directory]
+  #   outputBinding:
+  #     glob: "*"
+
+  - id: index_bwa_dir
+    type: Directory
+    label: "index bwa dir"
+    doc: "index bwa dir"
     outputBinding:
-      glob: "*"
+      glob: "$(inputs.index_bwa_dir_name)"
+
+  - id: index_bwa_files
+    type: File
+    label: "index bwa files"
+    doc: "index bwa files"
+    outputBinding:
+      glob: "$(inputs.index_bwa_dir_name)/$(inputs.index_bwa_name)"
+    secondaryFiles:
+      - .amb
+      - .ann
+      - .bwt
+      - .pac
+      - .sa
+    
 
 hints:
   - class: DockerRequirement
