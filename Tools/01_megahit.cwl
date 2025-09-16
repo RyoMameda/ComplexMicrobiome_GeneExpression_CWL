@@ -7,6 +7,8 @@ doc: |
   Input files are trimmed metagenomic fastq which obtained from 00_fastp.cwl, the metagenomic contigs are outputs.
   Original script: https://github.com/RyoMameda/workflow/blob/main/03_assembly.sh"
 
+baseCommand: [megahit]
+
 requirements:
   ShellCommandRequirement: {}
   WorkReuse:
