@@ -16,21 +16,21 @@ inputs:
   - id: fastq_1
     type: File
     label: "Forward reads file (_1_trim.fastq.gz)"
-    doc: "genomic forward reads file (_1_trim.fastq.gz)"
+    doc: "trimmed metagenomic forward reads file (_1_trim.fastq.gz)"
     default:
       class: File
       location: ../Data/SRR27548858_1_trim.fastq.gz
   - id: fastq_2
     type: File
     label: "Reverse reads file (_2_trim.fastq.gz)"
-    doc: "genomic reverse reads file (_2_trim.fastq.gz)"
+    doc: "trimmed metagenomic reverse reads file (_2_trim.fastq.gz)"
     default:
       class: File
       location: ../Data/SRR27548858_2_trim.fastq.gz
   - id: output_dir_name
     type: string
     label: "Output directory name (e.g., contig${sample_name})"
-    doc: "Output directory name (e.g., contig${sample_name})"
+    doc: "Output directory name (e.g., contig${sample_name}), you should not make the directory before execution."
     default: "contigs_megahit"
   - id: threads
     type: int
