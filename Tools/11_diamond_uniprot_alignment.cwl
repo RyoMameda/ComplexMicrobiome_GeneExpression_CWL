@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "diamond alignment process"
 doc: |
-  "diamond alignment process
+  "annotating process of Swiss-Prot (reviewed sequences of UniProt) sequences for predicted protein sequences using DIAMOND blastp
   original script: scripts/07_annotation_modified.sh
   original command: diamond blastp -p ${threads} -d ${db}/${swissprot} -o ${f}-rRNA_uniprot.txt -f 6 qseqid sseqid stitle evalue --quiet -q ${f}-rRNA.faa --top 1 -e 0.1 --sensitive --iterate"
 
@@ -34,6 +34,7 @@ arguments:
   - "1"
   - -e
   - $(inputs.evalue)
+  # following options are adopted for sensitive search
   - --sensitive
   - --iterate
 
@@ -47,7 +48,7 @@ inputs:
   - id: database_file
     type: File
     label: "database file"
-    doc: "database file"
+    doc: "indexed database file for DIAMOND"
     default:
       class: File
       location: ../out/uniprot_sprot.dmnd
@@ -55,7 +56,7 @@ inputs:
   - id: output_file_name
     type: string
     label: "output file name"
-    doc: "output file name"
+    doc: "text file of annotation information of Swiss-Prot"
     default: "diamond_alignment.txt"
 
   - id: filtered_rRNA_fasta_file
