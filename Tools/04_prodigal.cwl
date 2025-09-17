@@ -16,6 +16,7 @@ baseCommand: [prodigal]
 arguments:
   - -i
   - $(inputs.input_contigs_fasta_file)
+  # in this workflow, gbk formated output will not be used, so it will be omited for outputs.
   - -o
   - "output.gbk"
   # "-p meta" option is for metagenomic contigs 
@@ -65,14 +66,14 @@ outputs:
   - id: output_protein_fasta_file
     type: File
     label: "Output protein fasta file"
-    doc: "predicted protein translations to the selected file."
+    doc: "predicted protein sequences to the selected file."
     outputBinding:
       glob: "$(inputs.output_protein_fasta_file_name)"
 
   - id: output_dna_fasta_file
     type: File
     label: "Output dna fasta file"
-    doc: "nucleotide sequences of genes to the selected file"
+    doc: "protein coding nucleotide sequences to the selected file"
     outputBinding:
       glob: "$(inputs.output_dna_fasta_file_name)"
 
