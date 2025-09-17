@@ -3,7 +3,7 @@ cwlVersion: v1.2
 class: CommandLineTool
 label: "trimming by fastp (paired-end fastq data)"
 doc: |
-  "trimming by fastp (for pair-end fastq data). using fastp version 0.23.4. 
+  "quality-trimming pair-end fastq data using fastp version 0.23.4. 
   Modified from https://github.com/nigyta/bact_genome/blob/master/cwl/tool/fastp/fastp.cwl
   Original script: https://github.com/RyoMameda/workflow/blob/main/02_readsQC.sh
   original command: fastp -i ${f}_1.fastq.gz -I ${f}_2.fastq.gz -o ${f}_1_trim.fastq.gz -O ${f}_2_trim.fastq.gz -q 20 -h ${f}_fastp.html -w ${threads} -t 1 -T 1"
