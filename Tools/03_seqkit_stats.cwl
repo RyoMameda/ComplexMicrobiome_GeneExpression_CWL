@@ -13,7 +13,9 @@ requirements:
 baseCommand: [seqkit, stats]
 
 arguments:
+  # all statics (including quartiles of seq length, sum_gap, N50) will be produced as output
   - -a
+  # tabular format output
   - -T
   - $(inputs.input_contigs_fasta_file.path)
 
