@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "samtools process"
 doc: |
-  "samtools (flagstat) process
+  "checking mapping results (bam formated file) by SAMtools flagstat command
   original script: https://github.com/RyoMameda/workflow/blob/main/05_mapping.sh
   original command: samtools flagstat -@ ${threads} mg_${bam}.bam > flagstat_mg_${bam}"
 
@@ -23,13 +23,13 @@ inputs:
   - id: threads
     type: int
     label: "threads"
-    doc: "threads for bwa mem process"
+    doc: "threads for SAMtools process"
     default: 16
 
   - id: bam_file
     type: File
-    label: "sam file"
-    doc: "sam file"
+    label: "bam file"
+    doc: "sorted bam file processed by BWA-MEM and SAMtools sort command"
     default:
       class: File
       location: ../out/SRR27548858_1_trim_bwa_mem.bam
@@ -40,7 +40,7 @@ outputs:
   - id: flagstat_file
     type: File
     label: "flagstat file"
-    doc: "flagstat file"
+    doc: "flagstat file containing mapping efficiency information"
     outputBinding:
       glob: $(inputs.bam_file.basename.replace(/\.(bam|gz|bz2|fq|fastq)$/, '')).txt
 
