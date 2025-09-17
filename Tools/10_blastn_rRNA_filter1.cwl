@@ -4,7 +4,9 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "blastn result file filter"
 doc: |
-  "This tool is used to filter blastn result.
+  "This tool is used to filter blastn result. BLASTN result text file contains annotation of rRNA.
+  Sometimes, more than one rRNA are annotated to one query sequence, it should be fixed for gft file production.
+  Also, later process needs rRNA annotated predicted coding sequences list.
   original script: scripts/07_annotation_modified.sh
   original command1: cat ${f}_*.txt | awk '!x[$1]++' > ${f}_rRNAlist.txt
   original command2: cut -f1 ${f}_rRNAlist.txt | sort > ${f}_rRNA_toplist.txt"
@@ -42,14 +44,14 @@ outputs:
   - id: rRNAlist_file
     type: File
     label: "rRNAlist file"
-    doc: "rRNAlist file"
+    doc: "annotation information of rRNA which is the input of gtf file creation"
     outputBinding:
       glob: $(inputs.blastn_result_file.basename.replace(/\.txt$/, ''))_rRNAlist.txt
 
   - id: rRNA_toplist_file
     type: File
     label: "rRNA toplist file"
-    doc: "rRNA toplist file"
+    doc: "the sequence IDs of rRNA annotated predicted protein conding sequences"
     outputBinding:
       glob: $(inputs.blastn_result_file.basename.replace(/\.txt$/, ''))_rRNA_toplist.txt
 
