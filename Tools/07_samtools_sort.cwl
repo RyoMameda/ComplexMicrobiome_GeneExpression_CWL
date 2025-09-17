@@ -17,6 +17,10 @@ baseCommand: [samtools, sort]
 arguments:
   - -@
   - $(inputs.threads)
+  - -o
+  - $(inputs.sam_file.basename.replace(/\.(sam|gz|bz2|fq|fastq)$/, '')).bam
+  - -O
+  - "BAM"
   - $(inputs.sam_file.path)
 
 inputs:
@@ -33,8 +37,6 @@ inputs:
     default:
       class: File
       location: ../out/SRR27548858_1_trim_bwa_mem.sam
-
-stdout: $(inputs.sam_file.basename.replace(/\.(sam|gz|bz2|fq|fastq)$/, '')).bam
 
 outputs:
   - id: bam_file
