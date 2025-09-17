@@ -1,5 +1,4 @@
 #!/usr/bin/env cwl-runner
-# Generated from: makeblastdb -in ./data/uniprotkb_rice_all_240820.fasta -out ./data/index_uniprot_rice/uniprotkb_rice_all_240820 -dbtype prot -hash_index -parse_seqids
 class: CommandLineTool
 cwlVersion: v1.2
 label: "diamond result file filter"
