@@ -23,7 +23,7 @@ arguments:
   - $(inputs.input_fasta_file.path)
   - -out
   - $(inputs.output_file_name)
-  # You may not edit "outfmt", or 12_faablast2gtf4tpm.cwl do not work correctly.
+  # You may not edit "outfmt" following terms, or 12_faablast2gtf4tpm.cwl do not work correctly.
   - -outfmt
   - "6 qseqid sseqid stitle evalue"
   - -max_target_seqs
