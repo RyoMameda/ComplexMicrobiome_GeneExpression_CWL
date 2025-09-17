@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "bwa index process"
 doc: |
-  "bwa index create process from predicted protein conding sequences for executing bwa mem process
+  "bwa index create process from predicted protein conding sequences for executing BWA-MEM process
   modified from https://github.com/common-workflow-library/bio-cwl-tools/blob/release/bwa/BWA-Index.cwl
   original script: https://github.com/RyoMameda/workflow/blob/main/05_mapping.sh
   original command: bwa index -p index_${f}_bwa ${f}.fna"
@@ -25,13 +25,13 @@ inputs:
   - id: index_bwa_dir_name
     type: string
     label: "index bwa dir name"
-    doc: "index bwa dir name"
+    doc: "index files will be contained in this directry"
     default: "index_bwa_dir"
 
   - id: index_bwa_name
     type: string
     label: "index bwa name"
-    doc: "index bwa name"
+    doc: "index files' name for BWA-MEM"
     default: "index_bwa"
 
   - id: input_fasta_file
@@ -53,14 +53,14 @@ outputs:
   - id: index_bwa_dir
     type: Directory
     label: "index bwa dir"
-    doc: "index bwa dir"
+    doc: "index files will be contained in this directry"
     outputBinding:
       glob: "$(inputs.index_bwa_dir_name)"
 
   - id: index_bwa_files
     type: File
     label: "index bwa files"
-    doc: "index bwa files"
+    doc: "index files' name for BWA-MEM"
     outputBinding:
       glob: "$(inputs.index_bwa_dir_name)/$(inputs.index_bwa_name)"
     secondaryFiles:
