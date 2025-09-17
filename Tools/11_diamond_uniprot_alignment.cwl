@@ -62,7 +62,7 @@ inputs:
   - id: filtered_rRNA_fasta_file
     type: File
     label: "filtered rRNA fasta file"
-    doc: "filtered rRNA fasta file"
+    doc: "predicted protein sequences without contaminated rRNA"
     default:
       class: File
       location: ../out/all_contigs_SRR27548858_protein_rRNA.fasta
@@ -70,7 +70,7 @@ inputs:
   - id: evalue
     type: float
     label: "evalue"
-    doc: "evalue"
+    doc: "E-value"
     default: 0.1
 
 
