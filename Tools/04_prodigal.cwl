@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "prodigal process"
 doc: |
-  "prediction of protein coding sequences for metagenomic contigs using Prodigal
+  "prodigal process
   Original script: https://github.com/RyoMameda/workflow/blob/main/04_prodigal.sh
   prodigal -i ${contig} -o ${output}.gbk -p meta -q -a ${output}.faa -d ${output}.fna"
 
@@ -19,10 +19,8 @@ arguments:
   - -o
   - $(inputs.output_gbk_file_name)
   - -p
-  # "-p meta" option is for metagenomic contigs, not for complete genomes
   - meta
   - -q
-  # "-q" option is to run quietly (suppress normal stderr output)
   - -a
   - $(inputs.output_protein_fasta_file_name)
   - -d
@@ -32,7 +30,7 @@ inputs:
   - id: input_contigs_fasta_file
     type: File
     label: "Input contigs fasta file"
-    doc: "Input metagenomic contigs fasta file"
+    doc: "Input contigs fasta file"
     default:
       class: File
       location: ../out/all_contigs_SRR27548858.fa
