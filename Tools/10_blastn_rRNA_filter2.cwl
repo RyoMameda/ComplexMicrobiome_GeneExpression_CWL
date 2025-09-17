@@ -27,7 +27,7 @@ inputs:
   - id: rRNA_toplist_file
     type: File
     label: "rRNA toplist file"
-    doc: "rRNA toplist file"
+    doc: "the sequence IDs of rRNA annotated predicted protein conding sequences"
     default:
       class: File
       location: ../out/blastn_rRNA_alignment_rRNA_toplist.txt
@@ -35,7 +35,7 @@ inputs:
   - id: prodigal_result_protein_fasta_file
     type: File
     label: "prodigal result protein fasta file"
-    doc: "prodigal result protein fasta file"
+    doc: "predicted protein sequences of Prodigal output"
     default:
       class: File
       location: ../out/all_contigs_SRR27548858_protein.fasta
@@ -52,8 +52,8 @@ outputs:
 
   - id: rRNA_fasta_file
     type: File
-    label: "rRNA fasta file"
-    doc: "rRNA fasta file"
+    label: "omitted rRNA fasta file"
+    doc: "predicted protein sequences without contaminated rRNA"
     outputBinding:
       glob: $(inputs.prodigal_result_protein_fasta_file.basename.replace(/\.fasta$/, ''))_rRNA.fasta
 
