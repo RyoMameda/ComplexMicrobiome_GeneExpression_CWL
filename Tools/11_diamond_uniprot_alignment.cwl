@@ -20,6 +20,7 @@ arguments:
   - $(inputs.database_file.path)
   - -o
   - $(inputs.output_file_name)
+  # You may not edit "-f" following terms, or 12_faablast2gtf4tpm.cwl do not work correctly.
   - -f
   - "6"
   - "qseqid"
