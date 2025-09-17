@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "samtools process"
 doc: |
-  "samtools sorting process from BWA-MEM output sam file to bam file
+  "SAMtools sorting process from BWA-MEM output sam file to bam file
   original script: https://github.com/RyoMameda/workflow/blob/main/05_mapping.sh
   original command: samtools sort -@ ${threads} > mg_${bam}.bam"
 
@@ -27,13 +27,13 @@ inputs:
   - id: threads
     type: int
     label: "threads"
-    doc: "threads for bwa mem process"
+    doc: "threads for SAMtools process"
     default: 16
 
   - id: sam_file
     type: File
     label: "sam file"
-    doc: "sam formated file"
+    doc: "output sam formated file of BWA-MEM process"
     default:
       class: File
       location: ../out/SRR27548858_1_trim_bwa_mem.sam
@@ -42,7 +42,7 @@ outputs:
   - id: bam_file
     type: File
     label: "bam file"
-    doc: "bam file"
+    doc: "sorted bam formated file"
     outputBinding:
       glob: $(inputs.sam_file.basename.replace(/\.(sam|gz|bz2|fq|fastq)$/, '')).bam
 
