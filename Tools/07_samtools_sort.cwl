@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "samtools process"
 doc: |
-  "samtools process
+  "samtools sorting process from BWA-MEM output sam file to bam file
   original script: https://github.com/RyoMameda/workflow/blob/main/05_mapping.sh
   original command: samtools sort -@ ${threads} > mg_${bam}.bam"
 
@@ -33,7 +33,7 @@ inputs:
   - id: sam_file
     type: File
     label: "sam file"
-    doc: "sam file"
+    doc: "sam formated file"
     default:
       class: File
       location: ../out/SRR27548858_1_trim_bwa_mem.sam
