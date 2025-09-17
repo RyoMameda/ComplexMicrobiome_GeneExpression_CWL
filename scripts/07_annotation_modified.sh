@@ -23,7 +23,7 @@ cut -f1 ${f}_rRNAlist.txt | sort > ${f}_rRNA_toplist.txt
 # seqkit seq -i ${f}.faa > mid.faa
 # seqkit grep -f ${f}_list-rRNA.txt mid.faa > ${f}-rRNA.faa
 # rm mid.faa ${f}_proteinlist.txt
-seqkit seq -i ${f}.faa | seqkit grep -v -f ${f}_rRNA_toplist.txt > ${f}-rRNA.faa
+seqkit grep -v -f ${f}_rRNA_toplist.txt ${f}.faa > ${f}-rRNA.faa
 rm ${f}_rRNA_toplist.txt
 
 # BLASTP with Swiss-Prot
