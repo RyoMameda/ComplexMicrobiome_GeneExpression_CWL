@@ -4,7 +4,7 @@ cwlVersion: v1.2
 label: "seqkit stats process"
 doc: |
   "statical analysis of metagenomic contigs using SeqKit
-  Checking value to confirm the contigs quality
+  Checking value (such as N50, length ...) to confirm the contigs quality
   Original script: https://github.com/RyoMameda/workflow/blob/main/03_assembly.sh"
 
 requirements:
