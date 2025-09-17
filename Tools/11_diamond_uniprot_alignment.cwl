@@ -41,7 +41,7 @@ inputs:
   - id: threads
     type: int
     label: "threads"
-    doc: "threads for diamond alignment process"
+    doc: "Number of threads to use"
     default: 16
 
   - id: database_file
