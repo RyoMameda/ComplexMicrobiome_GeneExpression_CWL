@@ -3,10 +3,9 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "bwa process"
 doc: |
-  "bwa mem process
+  "Mapping trimmed metagenomic or metatranscriptomic reads to predicted protein coding sequences using BWA-MEM
   original script: https://github.com/RyoMameda/workflow/blob/main/05_mapping.sh
-  original command: bwa mem -t ${threads} index_${f}_bwa ${fqdir}/${mgfq}_1_trim.fastq.gz ${fqdir}/${mgfq}_2_trim.fastq.gz
-  original command: bwa mem -t ${threads} index_${f}_bwa ${fqdir}/${mtfq}_1_trim.fastq.gz ${fqdir}/${mtfq}_2_trim.fastq.gz"
+  original command: bwa mem -t ${threads} index_${f}_bwa ${fqdir}/${mgfq}_1_trim.fastq.gz ${fqdir}/${mgfq}_2_trim.fastq.gz"
 
 requirements:
   WorkReuse:
@@ -26,13 +25,13 @@ inputs:
   - id: threads
     type: int
     label: "threads"
-    doc: "threads for bwa mem process"
+    doc: "threads for BWA-MEM process"
     default: 16
 
   - id: index_bwa_dir_name
     type: File
     label: "index bwa dir name"
-    doc: "index bwa dir name"
+    doc: "directory containig index files for BWA-MEM"
     default:
       class: File
       location: ../out/index_bwa_dir/index_bwa
@@ -46,14 +45,14 @@ inputs:
   - id: fastq1
     type: File
     label: "fastq1"
-    doc: "fastq1 file"
+    doc: "trimmed meagenomic or metatranscriptomic fastq1 file"
     default:
       class: File
       location: ../Data/SRR27548858_1_trim.fastq.gz
   - id: fastq2
     type: File
     label: "fastq2"
-    doc: "fastq2 file"
+    doc: "trimmed meagenomic or metatranscriptomic fastq2 file"
     default:
       class: File
       location: ../Data/SRR27548858_2_trim.fastq.gz
