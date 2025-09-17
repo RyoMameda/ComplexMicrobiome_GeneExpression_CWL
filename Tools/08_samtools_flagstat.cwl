@@ -23,7 +23,7 @@ inputs:
   - id: threads
     type: int
     label: "threads"
-    doc: "threads for SAMtools process"
+    doc: "Number of threads to use"
     default: 16
 
   - id: bam_file
