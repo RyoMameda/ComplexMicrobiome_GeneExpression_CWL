@@ -17,7 +17,7 @@ arguments:
   - -i
   - $(inputs.input_contigs_fasta_file)
   - -o
-  - output.gbk
+  - "output.gbk"
   # "-p meta" option is for metagenomic contigs 
   - -p
   - meta
