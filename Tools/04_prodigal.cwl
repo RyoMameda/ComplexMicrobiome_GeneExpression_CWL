@@ -19,7 +19,7 @@ arguments:
   - -o
   - $(inputs.output_gbk_file_name)
   - -p
-  # "-p meta" option is for metagenomic contigs 
+  # "-p meta" option is for metagenomic contigs, not for complete genomes
   - meta
   - -q
   # "-q" option is to run quietly (suppress normal stderr output)
