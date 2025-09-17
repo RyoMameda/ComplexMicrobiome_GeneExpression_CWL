@@ -1,7 +1,7 @@
 #!/usr/bin/env cwl-runner
 class: CommandLineTool
 cwlVersion: v1.2
-label: "samtools process"
+label: "diamond index process"
 doc: |
   "diamond index process
   original script: https://github.com/RyoMameda/workflow/blob/main/06_get_ref.sh

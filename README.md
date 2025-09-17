@@ -7,22 +7,29 @@
 
 # Gene Expression Analysis Workflow in Complex Microbiomes
 
-### based shell script & python script
+## Workflow Schema 
+- more details: [Optimization of Mapping Tools and Investigation of Ribosomal RNA Influence for Data-Driven Gene Expression Analysis in Complex Microbiomes](https://doi.org/10.3390/microorganisms13050995)
+
+![image](./image/microorganisms-13-00995-g001.png)
+
+&nbsp;
+
+### 1. based shell script & python script
 
 GitHub: https://github.com/RyoMameda/workflow
 
 &nbsp;
 
-### Minimum Requirements
+### 2. Minimum Requirements
 
 - `Docker`
 - `cwltool`
 
 &nbsp;
 
-### Test dataset
+### 3. Test dataset
 
-- Please place it in the `Data` directory!
+- If you are testing with the following files, please place them in the `Data` directory!
 
 #### Metagenome data
 
@@ -36,23 +43,22 @@ GitHub: https://github.com/RyoMameda/workflow
 
 &nbsp;
 
-### Data to be prepared in advance
+### 4. Data to be prepared in advance (for annotation)
 
 - Please place it in the `Data` directory!
 
 ```bash
+# rRNA data from SILVA website (release138.1; accessed on 17,September,2025)
+curl -O https://ftp.arb-silva.de/release_138.1/Exports/SILVA_138.1_LSUParc_tax_silva.fasta.gz
+curl -O https://ftp.arb-silva.de/release_138.1/Exports/SILVA_138.1_SSUParc_tax_silva.fasta.gz
 
-# reference rRNA data
-
-# Swiss-Prot data from UniProt using
+# Swiss-Prot data from UniProt for diamond makedb process (accessed on 17,September,2025)
 curl -O https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
-# making BLASTP index files
 pigz -d uniprot_sprot.fasta.gz
 
-# Pfam data from InterPro
+# Pfam data from InterPro (accessed on 17,September,2025)) for hmmscan proess
 curl -O https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
 ```
-
 
 &nbsp;
 

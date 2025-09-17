@@ -46,6 +46,13 @@ inputs:
     default: 8
 
 outputs:
+  - id: output_dir
+    type: Directory
+    label: "Output directory"
+    doc: "Output directory"
+    outputBinding:
+      glob: "$(inputs.output_dir_name)"
+
   - id: final_contigs_fasta_file
     type: File
     label: "Final contigs fasta file"
