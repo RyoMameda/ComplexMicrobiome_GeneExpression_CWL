@@ -18,9 +18,9 @@ arguments:
     - -I
     - $(inputs.fastq2.path)
     - -o
-    - $(inputs.fastq1.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.fq.gz
+    - $(inputs.fastq1.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.fastq.gz
     - -O
-    - $(inputs.fastq2.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.fq.gz
+    - $(inputs.fastq2.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.fastq.gz
     - -h
     - $(inputs.fastq1.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.report.html
     - -j
@@ -77,13 +77,13 @@ outputs:
       label: "trimmed fastq1 file"
       doc: "trimmed paired-end fastq file (e.g. MK.F1_R1_trim.fq.gz)"
       outputBinding:
-        glob: $(inputs.fastq1.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.fq.gz
+        glob: $(inputs.fastq1.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.fastq.gz
     - id: out_fastq2
       type: File
       label: "trimmed fastq2 file"
       doc: "trimmed paired-end fastq file (e.g. MK.F1_R2_trim.fq.gz)"
       outputBinding:
-        glob: $(inputs.fastq2.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.fq.gz
+        glob: $(inputs.fastq2.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.fastq.gz
     - id: out_html
       type: File
       label: "trimming report html file"
