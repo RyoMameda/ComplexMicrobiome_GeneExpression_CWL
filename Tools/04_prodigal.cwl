@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "prodigal process"
 doc: |
-  "prodigal process
+  "prediction of protein coding sequences for metagenomic contigs using Prodigal
   Original script: https://github.com/RyoMameda/workflow/blob/main/04_prodigal.sh
   prodigal -i ${contig} -o ${output}.gbk -p meta -q -a ${output}.faa -d ${output}.fna"
 
@@ -19,8 +19,10 @@ arguments:
   - -o
   - $(inputs.output_gbk_file_name)
   - -p
+  # "-p meta" option is for metagenomic contigs 
   - meta
   - -q
+  # "-q" option is to run quietly (suppress normal stderr output)
   - -a
   - $(inputs.output_protein_fasta_file_name)
   - -d
