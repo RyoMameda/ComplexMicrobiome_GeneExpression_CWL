@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "diamond index process"
 doc: |
-  "diamond index process
+  "creating index file of Swiss-Prot protein sequences for DIAMOND process
   original script: https://github.com/RyoMameda/workflow/blob/main/06_get_ref.sh
   original command: diamond makedb -in uniprot_sprot.fasta -db uniprot_sprot --threads ${threads}"
 
@@ -26,7 +26,7 @@ inputs:
     type: File
     label: "protein fasta file"
     doc: |
-      "protein fasta file
+      "protein fasta file (zipped file can be acceptable)
       dataset: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz"
     default:
       class: File
@@ -35,20 +35,20 @@ inputs:
   - id: db_name
     type: string
     label: "db name"
-    doc: "db name"
+    doc: "database name for DIAMOND"
     default: "uniprot_sprot"
 
   - id: threads
     type: int
     label: "threads"
-    doc: "threads for bwa mem process"
+    doc: "threads for indexing process"
     default: 16
 
 outputs:
   - id: diamond_db_file
     type: File
     label: "diamond db file"
-    doc: "diamond db file"
+    doc: "database file for DIAMOND"
     outputBinding:
       glob: "$(inputs.db_name).dmnd"
 
