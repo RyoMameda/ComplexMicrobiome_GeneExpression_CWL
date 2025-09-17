@@ -32,7 +32,7 @@ inputs:
   - id: input_contigs_fasta_file
     type: File
     label: "Input contigs fasta file"
-    doc: "Input contigs fasta file"
+    doc: "Input metagenomic contigs fasta file"
     default:
       class: File
       location: ../out/all_contigs_SRR27548858.fa
