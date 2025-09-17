@@ -16,6 +16,7 @@ requirements:
 baseCommand: [seqkit, grep]
 
 arguments:
+  # invert match option
   - -v
   - -f
   - $(inputs.rRNA_toplist_file.path)
