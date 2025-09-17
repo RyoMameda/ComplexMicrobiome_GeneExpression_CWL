@@ -80,7 +80,7 @@ inputs:
   - id: evalue
     type: float
     label: "evalue"
-    doc: "E-value of the annotation"
+    doc: "E-value threshod of BLASTN search"
     default: 0.1
 
 outputs:
