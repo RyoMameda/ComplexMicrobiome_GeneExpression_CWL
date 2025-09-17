@@ -49,7 +49,7 @@ outputs:
   
   - id: index_file
     type: File
-    doc: "all of these files are index for BLASTN"
+    doc: "all of these files arethe result of indexing for BLASTN"
     outputBinding:
       glob: "$(inputs.index_dir_name)/$(inputs.input_fasta_file.basename)"
     secondaryFiles:
