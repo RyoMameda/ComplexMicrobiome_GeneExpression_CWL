@@ -70,7 +70,7 @@ inputs:
   - id: evalue
     type: float
     label: "evalue"
-    doc: "E-value"
+    doc: "E-value threshold of blastp search"
     default: 0.1
 
 
@@ -85,7 +85,7 @@ outputs:
   - id: diamond_alignment_file
     type: File
     label: "diamond alignment file"
-    doc: "diamond alignment file"
+    doc: "text file containing annotaion of Swiss-Prot"
     outputBinding:
       glob: "$(inputs.output_file_name)"
 
