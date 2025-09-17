@@ -28,7 +28,7 @@ inputs:
   - id: custom_script
     type: File
     label: "custom python script"
-    doc: "custom python script located in 'scripts' directory"
+    doc: "faablast2gtf4tpm.py provides gtf formated file from predicted proteins fasta file, BLASTN output text file (searching rRNA) and DIAMOND output text file (searching Swiss-Prot proteins)."
     default:
       class: File
       location: ../scripts/faablast2gtf4tpm.py
