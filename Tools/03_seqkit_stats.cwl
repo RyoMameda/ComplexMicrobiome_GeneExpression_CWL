@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "seqkit stats process"
 doc: |
-  "seqkit stats process
+  "statical analysis of metagenomic contigs using SeqKit"
   Original script: https://github.com/RyoMameda/workflow/blob/main/03_assembly.sh"
 
 requirements:
