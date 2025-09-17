@@ -21,7 +21,7 @@ inputs:
   - id: input_fasta_file
     type: File
     label: "input fasta file"
-    doc: "input fasta file"
+    doc: "rRNA sequence fasta file (zipped fasta can be acceptable for BLAST v2.17.0 or later version"
     default:
       class: File
       location: ../Data/SILVA_138.1_LSUParc_tax_silva.fasta.gz
@@ -43,11 +43,13 @@ outputs:
 
   - id: index_dir
     type: Directory
+    doc: "directory containing index files for BLASTN"
     outputBinding:
       glob: "$(inputs.index_dir_name)"
   
   - id: index_file
     type: File
+    doc: "all of these files are index for BLASTN"
     outputBinding:
       glob: "$(inputs.index_dir_name)/$(inputs.input_fasta_file.basename)"
     secondaryFiles:
