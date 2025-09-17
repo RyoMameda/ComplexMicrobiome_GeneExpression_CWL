@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "rename process"
 doc: |
-  "rename process"
+  "assembled contig rename process"
 
 requirements:
   WorkReuse:
