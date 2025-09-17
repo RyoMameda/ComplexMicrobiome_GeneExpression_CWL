@@ -22,6 +22,8 @@ GitHub: https://github.com/RyoMameda/workflow
 
 ### Test dataset
 
+- Please place it in the `Data` directory!
+
 #### Metagenome data
 
 - [SRR27548858](https://www.ncbi.nlm.nih.gov/sra/?term=SRR27548858)
@@ -31,6 +33,26 @@ GitHub: https://github.com/RyoMameda/workflow
 - [SRR27548863](https://www.ncbi.nlm.nih.gov/sra/?term=SRR27548863)
 - [SRR27548864](https://www.ncbi.nlm.nih.gov/sra/?term=SRR27548864)
 - [SRR27548865](https://www.ncbi.nlm.nih.gov/sra/?term=SRR27548865)
+
+&nbsp;
+
+### Data to be prepared in advance
+
+- Please place it in the `Data` directory!
+
+```bash
+
+# reference rRNA data
+
+# Swiss-Prot data from UniProt using
+curl -O https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
+# making BLASTP index files
+pigz -d uniprot_sprot.fasta.gz
+
+# Pfam data from InterPro
+curl -O https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+```
+
 
 &nbsp;
 

@@ -3,4 +3,7 @@ cwl_cache/
 contigs_megahit/
 /out/*
 !/out/all_contigs_SRR27548858.fa.stats.txt
+!/out/SRR27548858_1_trim_bwa_mem.txt
 !/out/README.md
+!/Data/README.md
+Archive/*
