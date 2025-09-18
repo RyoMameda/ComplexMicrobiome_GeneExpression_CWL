@@ -62,7 +62,7 @@ inputs:
       label: "Number of bases trimmed from fastq2 tail"
       doc: "Number of bases trimmed from fastq2 tail"
       type: int
-      default: 16
+      default: 1
 
     - id: threads
       label: "Number of threads to use"
@@ -75,13 +75,13 @@ outputs:
     - id: out_fastq1
       type: File
       label: "trimmed fastq1 file"
-      doc: "trimmed paired-end fastq file (e.g. MK.F1_R1_trim.fq.gz)"
+      doc: "trimmed paired-end fastq file (e.g. MK.F1_R1_trim.fastq.gz)"
       outputBinding:
         glob: $(inputs.fastq1.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.fastq.gz
     - id: out_fastq2
       type: File
       label: "trimmed fastq2 file"
-      doc: "trimmed paired-end fastq file (e.g. MK.F1_R2_trim.fq.gz)"
+      doc: "trimmed paired-end fastq file (e.g. MK.F1_R2_trim.fastq.gz)"
       outputBinding:
         glob: $(inputs.fastq2.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_trim.fastq.gz
     - id: out_html
