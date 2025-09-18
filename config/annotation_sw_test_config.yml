@@ -1,0 +1,31 @@
+# Common parameters
+SW_THREADS: 16
+SW_EVALUE: 0.1
+
+# BLASTN rRNA index creation and alignment
+SW_BLASTN_rRNA_FASTA_FILE1:
+  class: File
+  location: ../Data/SILVA_138.1_LSUParc_tax_silva.fasta.gz
+
+SW_BLASTN_rRNA_FASTA_FILE2:
+  class: File
+  location: ../Data/SILVA_138.1_SSUParc_tax_silva.fasta.gz
+
+# test dataset
+SW_PRODIGAL_RESULT_DNA_FASTA_FILE:
+  class: File
+  location: ../test/20250919_annotation_sw_test/contigSRR27548857_prodigal.fna
+
+SW_PRODIGAL_RESULT_PROTEIN_FASTA_FILE:
+  class: File
+  location: ../test/20250919_annotation_sw_test/contigSRR27548857_prodigal.faa
+
+# diamond protein alignment
+SW_DIAMOND_INDEX_FILE:
+  class: File
+  location: ../Data/uniprot_sprot.fasta
+
+# GTF file creation
+SW_OUTPUT_GTF_FILE_NAME: "contigSRR27548857_annotation.gtf"
+
+

@@ -108,6 +108,12 @@ steps:
     out: [rRNA_uniprot_fasta_file]
 
 outputs:
+  - id: DIAMOND_ALIGNMENT_FILE
+    type: File
+    label: "Diamond alignment file"
+    doc: "Diamond alignment file"
+    outputSource: DIAMOND_ALIGNMENT/diamond_alignment_file
+
   - id: DIAMOND_TOPLIST_FILE
     type: File
     label: "Diamond toplist file"

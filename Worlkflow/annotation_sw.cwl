@@ -111,7 +111,7 @@ steps:
       DIAMOND_FILTERED_RRNA_PROTEIN_FASTA_FILE: PROCESS_BLASTN_rRNA/FILTERED_rRNA_PROTEIN_FASTA_FILE # previous step output
       DIAMOND_EVALUE: SW_EVALUE
     
-    out: [DIAMOND_TOPLIST_FILE, DIAMOND_FILTERED_FILE]
+    out: [DIAMOND_ALIGNMENT_FILE, DIAMOND_TOPLIST_FILE, DIAMOND_FILTERED_FILE]
 
 
   - id: PROCESS_GTF_CREATION
@@ -120,7 +120,7 @@ steps:
       # custom_script: default
       prodigal_result_protein_fasta_file: SW_PRODIGAL_RESULT_PROTEIN_FASTA_FILE
       blastn_result_rRNA_list_file: PROCESS_BLASTN_rRNA/BLASTN_rRNA_concat_file
-      diamond_result_protein_list_file: PROCESS_DIAMOND_PROTEIN/DIAMOND_TOPLIST_FILE
+      diamond_result_protein_list_file: PROCESS_DIAMOND_PROTEIN/DIAMOND_ALIGNMENT_FILE
       output_gtf_file_name: SW_OUTPUT_GTF_FILE_NAME
     
     out: [output_gtf_file]
