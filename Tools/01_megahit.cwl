@@ -50,7 +50,6 @@ inputs:
     doc: "Number of threads to use"
     default: 8
 
-
 outputs:
   # - id: output_dir
   #   type: Directory
