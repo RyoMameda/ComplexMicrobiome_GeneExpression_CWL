@@ -33,8 +33,8 @@ inputs:
 
   - id: diamond_result_filtered_rRNA_protein_fasta_file
     type: File
-    label: "diamond result filtered protein fasta file"
-    doc: "diamond result filtered protein fasta file"
+    label: "filtered rRNA fasta file"
+    doc: "predicted protein sequences without contaminated rRNA"
     default:
       class: File
       location: ../out/all_contigs_SRR27548858_protein_rRNA.fasta
@@ -50,8 +50,8 @@ outputs:
 
   - id: rRNA_uniprot_fasta_file
     type: File
-    label: "rRNA fasta file"
-    doc: "rRNA fasta file"
+    label: "unhitted fasta file"
+    doc: "predicted protein sequences without Swiss-Prot sequences and contaminated rRNA"
     outputBinding:
       glob: $(inputs.diamond_result_filtered_rRNA_protein_fasta_file.basename.replace(/\.fasta$/, ''))_rRNA-uniprot.fasta
 
