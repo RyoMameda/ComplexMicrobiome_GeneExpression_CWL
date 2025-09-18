@@ -1,9 +1,9 @@
 #!/usr/bin/env cwl-runner
 class: CommandLineTool
 cwlVersion: v1.2
-label: "diamond result file filter"
+label: "gtf file creation"
 doc: |
-  "This tool is used to filter diamond result.
+  "annotaion informtaion file (gtf formtaed) creation from the results of BLASTN and DIAMOND
   original script: scripts/07_annotation_modified.sh
   original command: 07_1_faablast2gtf4tpm.py --faa ${f}.faa --rrna ${f}_rRNAlist.txt --uniprot ${f}-rRNA_uniprot.txt -o ${f}_annotation.gtf"
 
@@ -36,7 +36,7 @@ inputs:
   - id: prodigal_result_protein_fasta_file
     type: File
     label: "prodigal result protein fasta file"
-    doc: "prodigal result protein fasta file"
+    doc: "Prodigal result protein fasta file (Do not omit any information from the result of Prodigal, such as "#" following terms in header of the fasta file)"
     default:
       class: File
       location: ../out/all_contigs_SRR27548858_protein.fasta
