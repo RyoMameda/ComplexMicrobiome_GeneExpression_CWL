@@ -18,20 +18,29 @@ requirements:
     enableReuse: true
 
 inputs:
-  - id: blastn_result_file
+  - id: blastn_result_file1
     type: File
     label: "blastn result file"
     doc: "blastn result file"
     default:
       class: File
-      location: ../out/blastn_rRNA_alignment.txt
+      location: ../out/blastn_rRNA_alignment_silva_138.1_LSUParc_tax_silva.txt
+
+  
+  - id: blastn_result_file2
+    type: File
+    label: "blastn result file"
+    doc: "blastn result file"
+    default:
+      class: File
+      location: ../out/blastn_rRNA_alignment_silva_138.1_SSUParc_tax_silva.txt
 
 
 arguments:
   - shellQuote: false
     valueFrom: |
-      cat $(inputs.blastn_result_file.path) | awk '!x[$1]++' > $(inputs.blastn_result_file.basename.replace(/\.txt$/, ''))_rRNAlist.txt
-      cut -f1 $(inputs.blastn_result_file.basename.replace(/\.txt$/, ''))_rRNAlist.txt | sort > $(inputs.blastn_result_file.basename.replace(/\.txt$/, ''))_rRNA_toplist.txt
+      cat $(inputs.blastn_result_file1.path) $(inputs.blastn_result_file2.path) | awk '!x[$1]++' > concat_rRNAlist.txt
+      cut -f1 concat_rRNAlist.txt | sort > concat_rRNA_toplist.txt
 
 outputs:
   # - id: all-for-debugging
@@ -46,14 +55,14 @@ outputs:
     label: "rRNAlist file"
     doc: "annotation information of rRNA which is the input of gtf file creation"
     outputBinding:
-      glob: $(inputs.blastn_result_file.basename.replace(/\.txt$/, ''))_rRNAlist.txt
+      glob: concat_rRNAlist.txt
 
   - id: rRNA_toplist_file
     type: File
     label: "rRNA toplist file"
     doc: "the sequence IDs of rRNA annotated predicted protein conding sequences"
     outputBinding:
-      glob: $(inputs.blastn_result_file.basename.replace(/\.txt$/, ''))_rRNA_toplist.txt
+      glob: concat_rRNA_toplist.txt
 
 
 hints:

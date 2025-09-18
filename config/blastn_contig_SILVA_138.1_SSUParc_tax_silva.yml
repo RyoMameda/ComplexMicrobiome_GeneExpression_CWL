@@ -1,0 +1,23 @@
+# test yaml file for blastn_rRNA_alignment.cwl
+threads: 16
+input_fasta_file:
+  class: File
+  location: ../out/all_contigs_SRR27548858_dna.fasta
+
+output_file_name: "blastn_rRNA_alignment_silva_138.1_SSUParc_tax_silva.txt"
+max_target_seqs: 1
+evalue: 0.1
+index_dir:
+  class: File
+  location: ../out/SILVA_138.1_SSUParc_tax_silva/SILVA_138.1_SSUParc_tax_silva.fasta.gz
+secondary_files:
+  - .ndb
+  - .nhr
+  - .nin
+  - .njs
+  - .nog
+  - .nos
+  - .not
+  - .nsq
+  - .ntf
+  - .nto
