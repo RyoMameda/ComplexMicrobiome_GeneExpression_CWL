@@ -54,7 +54,6 @@ curl -O https://ftp.arb-silva.de/release_138.1/Exports/SILVA_138.1_SSUParc_tax_s
 
 # Swiss-Prot data from UniProt for diamond makedb process (accessed on 17,September,2025)
 curl -O https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
-pigz -d uniprot_sprot.fasta.gz
 
 # Pfam data from InterPro (accessed on 17,September,2025)) for hmmscan proess
 curl -O https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
