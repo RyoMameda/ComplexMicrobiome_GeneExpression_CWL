@@ -85,7 +85,7 @@ outputs:
   - id: diamond_alignment_file
     type: File
     label: "diamond alignment file"
-    doc: "text file containing annotaion of Swiss-Prot"
+    doc: "text file containing annotaion of Swiss-Prot will be used for gtf file creation"
     outputBinding:
       glob: "$(inputs.output_file_name)"
 
