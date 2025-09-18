@@ -15,6 +15,7 @@ requirements:
 baseCommand: [seqkit, grep]
 
 arguments:
+  # invert match option
   - -v
   - -f
   - $(inputs.uniprot_list_file.path)
