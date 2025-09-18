@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "diamond result file filter"
 doc: |
-  "diamond filter process
+  "extracting sequence IDs of Swiss-Prot annotated predicted protein sequences
   original script: scripts/07_annotation_modified.sh
   original command: awk '!x[$1]++' ${f}-rRNA_uniprot.txt | cut -f1 | sort > ${f}-rRNA_uniprot_toplist.txt"
 
@@ -38,7 +38,7 @@ outputs:
   - id: diamond_alignment_file
     type: File
     label: "diamond alignment file"
-    doc: "diamond alignment file"
+    doc: "the sequence IDs of Swiss-Prot annotated predicted protein sequences"
     outputBinding:
       glob: $(inputs.diamond_alignment_result_file.basename.replace(/\.txt$/, ''))_toplist.txt
 
