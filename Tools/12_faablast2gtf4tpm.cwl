@@ -36,7 +36,7 @@ inputs:
   - id: prodigal_result_protein_fasta_file
     type: File
     label: "prodigal result protein fasta file"
-    doc: "Prodigal result protein fasta file (Do not omit any information from the result of Prodigal, such as "#" following terms in header of the fasta file)"
+    doc: "Prodigal result protein fasta file (Do not omit any information from the result of Prodigal, such as '#' following terms in header of the fasta file)"
     default:
       class: File
       location: ../out/all_contigs_SRR27548858_protein.fasta
