@@ -17,7 +17,7 @@ inputs:
   - id: diamond_alignment_result_file
     type: File
     label: "diamond alignment result file"
-    doc: "diamond alignment result file"
+    doc: "text file containing annotaion of Swiss-Prot using DIAMOND"
     default:
       class: File
       location: ../out/diamond_alignment.txt
