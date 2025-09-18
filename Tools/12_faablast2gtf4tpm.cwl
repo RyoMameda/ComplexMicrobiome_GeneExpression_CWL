@@ -44,7 +44,7 @@ inputs:
   - id: diamond_result_filtered_rRNA_protein_fasta_file
     type: File
     label: "diamond result filtered rRNA protein fasta file"
-    doc: "diamond result filtered rRNA protein fasta file"
+    doc: "text file containing annotaion of Swiss-Prot will be used for gtf file creation"
     default:
       class: File
       location: ../out/blastn_rRNA_alignment_rRNAlist.txt
