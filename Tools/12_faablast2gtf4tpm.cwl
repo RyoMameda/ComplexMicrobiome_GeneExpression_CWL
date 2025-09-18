@@ -52,7 +52,7 @@ inputs:
   - id: blastn_result_filtered_rRNA_protein_fasta_file
     type: File
     label: "blastn result filtered rRNA protein fasta file"
-    doc: "blastn result filtered rRNA protein fasta file"
+    doc: "annotation information of rRNA which is the input of gtf file creation"
     default:
       class: File
       location: ../out/diamond_alignment.txt
