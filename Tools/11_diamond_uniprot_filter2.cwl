@@ -3,7 +3,7 @@ class: CommandLineTool
 cwlVersion: v1.2
 label: "diamond result file filter"
 doc: |
-  "This tool is used to filter diamond result.
+  "extracting unhitted protein sequence searched rRNA and Swiss-Prot
   original script: scripts/07_annotation_modified.sh
   original command: seqkit grep -v -f ${f}_list-rRNA-uniprot.txt ${f}-rRNA.faa > ${f}-rRNA-uniprot.faa"
 
