@@ -26,7 +26,7 @@ inputs:
   - id: uniprot_toplist_file
     type: File
     label: "uniprot toplist file"
-    doc: "uniprot toplist file"
+    doc: "the sequence IDs of Swiss-Prot annotated predicted protein sequences"
     default:
       class: File
       location: ../out/diamond_alignment_toplist.txt
