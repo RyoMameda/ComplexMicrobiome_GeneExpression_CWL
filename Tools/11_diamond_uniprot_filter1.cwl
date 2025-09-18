@@ -35,7 +35,7 @@ outputs:
   #   outputBinding:
   #     glob: "*"
 
-  - id: diamond_alignment_file
+  - id: diamond_alignment_toplist_file
     type: File
     label: "diamond alignment file"
     doc: "the sequence IDs of Swiss-Prot annotated predicted protein sequences"

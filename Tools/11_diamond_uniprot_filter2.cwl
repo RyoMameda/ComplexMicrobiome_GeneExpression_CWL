@@ -18,8 +18,8 @@ arguments:
   # invert match option
   - -v
   - -f
-  - $(inputs.uniprot_list_file.path)
-  - $(inputs.blastn_result_filtered_protein_fasta_file.path)
+  - $(inputs.uniprot_toplist_file.path)
+  - $(inputs.diamond_result_filtered_rRNA_protein_fasta_file.path)
 
 
 inputs:
@@ -54,7 +54,6 @@ outputs:
     doc: "predicted protein sequences without Swiss-Prot sequences and contaminated rRNA"
     outputBinding:
       glob: $(inputs.diamond_result_filtered_rRNA_protein_fasta_file.basename.replace(/\.fasta$/, ''))_rRNA-uniprot.fasta
-
 
 hints:
   - class: DockerRequirement

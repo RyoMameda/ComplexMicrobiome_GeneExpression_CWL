@@ -18,9 +18,9 @@ arguments:
   - --faa
   - $(inputs.prodigal_result_protein_fasta_file.path)
   - --rrna
-  - $(inputs.blastn_result_filtered_rRNA_protein_fasta_file.path)
+  - $(inputs.blastn_result_rRNA_list_file.path)
   - --uniprot
-  - $(inputs.diamond_result_filtered_rRNA_protein_fasta_file.path)
+  - $(inputs.diamond_result_protein_list_file.path)
   - -o
   - $(inputs.output_gtf_file_name)
 
@@ -41,7 +41,7 @@ inputs:
       class: File
       location: ../out/all_contigs_SRR27548858_protein.fasta
 
-  - id: diamond_result_filtered_rRNA_protein_fasta_file
+  - id: blastn_result_rRNA_list_file
     type: File
     label: "diamond result filtered rRNA protein fasta file"
     doc: "text file containing annotaion of Swiss-Prot will be used for gtf file creation"
@@ -49,7 +49,7 @@ inputs:
       class: File
       location: ../out/blastn_rRNA_alignment_rRNAlist.txt
 
-  - id: blastn_result_filtered_rRNA_protein_fasta_file
+  - id: diamond_result_protein_list_file
     type: File
     label: "blastn result filtered rRNA protein fasta file"
     doc: "annotation information of rRNA which is the input of gtf file creation"
