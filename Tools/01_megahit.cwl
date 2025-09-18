@@ -9,6 +9,11 @@ doc: |
 
 baseCommand: [megahit]
 
+requirements:
+  WorkReuse:
+    enableReuse: true
+  InlineJavascriptRequirement: {}
+
 arguments:
   - prefix: "-1"
     valueFrom: $(inputs.fastq_1.path)
@@ -46,12 +51,12 @@ inputs:
     default: 8
 
 outputs:
-  - id: output_dir
-    type: Directory
-    label: "Output directory"
-    doc: "Output directory"
-    outputBinding:
-      glob: "$(inputs.output_dir_name)"
+  # - id: output_dir
+  #   type: Directory
+  #   label: "Output directory"
+  #   doc: "Output directory"
+  #   outputBinding:
+  #     glob: "$(inputs.output_dir_name)"
 
   - id: final_contigs_fasta_file
     type: File
@@ -62,7 +67,7 @@ outputs:
 
 hints:
   - class: DockerRequirement
-    dockerPull: quay.io/biocontainers/megahit:1.2.6--h8b12597_0
+    dockerPull: quay.io/biocontainers/megahit:1.2.9--h5ca1c30_6
 
 $namespaces:
   s: https://schema.org/
