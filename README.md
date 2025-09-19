@@ -100,6 +100,20 @@ In this process, the following steps are performed:
 
 &nbsp;
 
+### 6. Command Execution (sub-workflow)
+
+```bash
+# annotation sub-workflow
+# Download the metagenome FASTQ files, then run processing with fastp, megahit, and prodigal before proceeding with this operation.
+
+cwltool --debug --outdir <output directory> ./Worlkflow/annotation_sw.cwl ./config/annotation_sw_test_config.yml
+
+# mapping sub-workflow
+cwltool --debug --outdir <output directory> ./Worlkflow/metagenomic_contig_mapping_sw.cwl 
+
+```
+
+
 ### Analysis Workflow Article
 
 [Optimization of Mapping Tools and Investigation of Ribosomal RNA Influence for Data-Driven Gene Expression Analysis in Complex Microbiomes](https://doi.org/10.3390/microorganisms13050995)
