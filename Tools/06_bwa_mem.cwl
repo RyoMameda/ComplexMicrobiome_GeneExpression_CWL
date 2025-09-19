@@ -17,6 +17,8 @@ baseCommand: [bwa, mem]
 arguments:
   - -t
   - $(inputs.threads)
+  - -o
+  - $(inputs.fastq1.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_bwa_mem.sam
   - $(inputs.index_bwa_dir_name)
   - $(inputs.fastq1.path)
   - $(inputs.fastq2.path)
@@ -49,6 +51,7 @@ inputs:
     default:
       class: File
       location: ../Data/SRR27548858_1_trim.fastq.gz
+
   - id: fastq2
     type: File
     label: "fastq2"
@@ -56,21 +59,19 @@ inputs:
     default:
       class: File
       location: ../Data/SRR27548858_2_trim.fastq.gz
-  
-stdout: $(inputs.fastq1.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_bwa_mem.sam
 
 outputs:
   - id: sam_file
     type: File
     label: "sam file"
-    doc: "sam file"
+    doc: "mapping results of sam file"
     outputBinding:
       glob: $(inputs.fastq1.basename.replace(/\.gz$|\.bz2$/, '').replace(/\.fq$|\.fastq$/, ''))_bwa_mem.sam
 
 
 hints:
   - class: DockerRequirement
-    dockerPull: quay.io/biocontainers/bwa:0.7.17--pl5.22.0_0
+    dockerPull: quay.io/biocontainers/bwa:0.7.17--he4a0461_11
 
 $namespaces:
   s: https://schema.org/

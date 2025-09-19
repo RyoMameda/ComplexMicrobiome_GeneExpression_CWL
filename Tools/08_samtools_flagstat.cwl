@@ -34,7 +34,7 @@ inputs:
       class: File
       location: ../out/SRR27548858_1_trim_bwa_mem.bam
 
-stdout: $(inputs.bam_file.basename.replace(/\.(bam|gz|bz2|fq|fastq)$/, '')).txt
+stdout: $(inputs.bam_file.basename.replace(/\.(bam|gz|bz2|fq|fastq)$/, ''))_flagstat
 
 outputs:
   - id: flagstat_file
@@ -42,7 +42,7 @@ outputs:
     label: "flagstat file"
     doc: "flagstat file containing mapping efficiency information"
     outputBinding:
-      glob: $(inputs.bam_file.basename.replace(/\.(bam|gz|bz2|fq|fastq)$/, '')).txt
+      glob: $(inputs.bam_file.basename.replace(/\.(bam|gz|bz2|fq|fastq)$/, ''))_flagstat
 
 
 hints:

@@ -10,6 +10,7 @@ doc: |
 requirements:
   WorkReuse:
     enableReuse: true
+  InlineJavascriptRequirement: {}
 
 baseCommand: [seqkit, stats]
 
@@ -19,6 +20,8 @@ arguments:
   # tabular format output
   - -T
   - $(inputs.input_contigs_fasta_file.path)
+  - -o
+  - $(inputs.sam_file.basename.replace(/\.(gz|bz2|fa|fasta)$/, ''))_stats.txt
 
 inputs:
   - id: input_contigs_fasta_file
@@ -36,8 +39,12 @@ outputs:
       items: [File, Directory]
     outputBinding:
       glob: "*"
-
-stdout: $(inputs.input_contigs_fasta_file.basename).stats.txt
+  - id: stats_file
+    type: File
+    label: "stats file"
+    doc: "text file containing metagenoic contig stats"
+    outputBinding:
+      glob: $(inputs.sam_file.basename.replace(/\.(gz|bz2|fa|fasta)$/, ''))_stats.txt
 
 hints:
   - class: DockerRequirement
