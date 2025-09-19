@@ -64,15 +64,6 @@ steps:
       output_dir_name: MEGAHIT_OUTPUT_DIR
       threads: THREADS
     out: [output_dir, final_contigs_fasta_file]
-
-  # - id: RENAME_CONTIG
-  #   run: ../Tools/02_rename.cwl
-  #   in:
-  #     input_contigs_fasta_file: MEGAHIT/final_contigs_fasta_file
-  #     output_contigs_fasta_file_name: 
-  #       valueFrom: $(inputs.MEGAHIT_OUTPUT_DIR + ".fa")
-  #       source: MEGAHIT_OUTPUT_DIR
-  #   out: [output_contigs_fasta_file]
   
   - id: RENAME_CONTIG
     run: ../Tools/02_rename.cwl
@@ -88,18 +79,6 @@ steps:
     in:
       input_contigs_fasta_file: RENAME_CONTIG/output_contigs_fasta_file
     out: [stats_file]
-
-  # - id: PROTEIN_PREDICTION
-  #   run: ../Tools/04_prodigal.cwl
-  #   in:
-  #     input_contigs_fasta_file: RENAME_CONTIG/output_contigs_fasta_file
-  #     output_protein_fasta_file_name: 
-  #       valueFrom: $(inputs.MEGAHIT_OUTPUT_DIR + "_protein.fasta")
-  #       source: MEGAHIT_OUTPUT_DIR
-  #     output_dna_fasta_file_name: 
-  #       valueFrom: $(inputs.MEGAHIT_OUTPUT_DIR + "_dna.fasta")
-  #       source: MEGAHIT_OUTPUT_DIR
-  #   out: [output_protein_fasta_file, output_dna_fasta_file]
 
   - id: PROTEIN_PREDICTION
     run: ../Tools/04_prodigal.cwl
