@@ -10,3 +10,5 @@ Archive/*
 test/20250918_annotation_sw_test/*
 /test/20250919_annotation_sw_test/contigSRR27548857_prodigal.faa
 /test/20250919_annotation_sw_test/contigSRR27548857_prodigal.fna
+test/20250919_annotation_sw_test/contigSRR27548857_annotation.gtf
+test/.DS_Store
