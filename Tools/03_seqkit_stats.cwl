@@ -21,7 +21,7 @@ arguments:
   - -T
   - $(inputs.input_contigs_fasta_file.path)
   - -o
-  - $(inputs.sam_file.basename.replace(/\.(gz|bz2|fa|fasta)$/, ''))_stats.txt
+  - $(inputs.input_contigs_fasta_file.basename.replace(/\.(gz|bz2|fa|fasta)$/, ''))_stats.txt
 
 inputs:
   - id: input_contigs_fasta_file
@@ -44,7 +44,7 @@ outputs:
     label: "stats file"
     doc: "text file containing metagenoic contig stats"
     outputBinding:
-      glob: $(inputs.sam_file.basename.replace(/\.(gz|bz2|fa|fasta)$/, ''))_stats.txt
+      glob: $(inputs.input_contigs_fasta_file.basename.replace(/\.(gz|bz2|fa|fasta)$/, ''))_stats.txt
 
 hints:
   - class: DockerRequirement

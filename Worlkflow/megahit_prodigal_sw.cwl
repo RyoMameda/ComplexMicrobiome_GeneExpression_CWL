@@ -15,6 +15,7 @@ requirements:
   WorkReuse:
     enableReuse: true
   InlineJavascriptRequirement: {}
+  StepInputExpressionRequirement: {}
 
 inputs:
 ############## Common Parameters ##############
@@ -104,12 +105,6 @@ steps:
     run: ../Tools/04_prodigal.cwl
     in:
       input_contigs_fasta_file: RENAME_CONTIG/output_contigs_fasta_file
-      output_protein_fasta_file_name:
-        source: MEGAHIT_OUTPUT_DIR
-        valueFrom: $(self + "_protein.fasta")
-      output_dna_fasta_file_name:
-        source: MEGAHIT_OUTPUT_DIR
-        valueFrom: $(self + "_dna.fasta")
     out: [output_protein_fasta_file, output_dna_fasta_file]
 
 
