@@ -5,12 +5,20 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=python3.11&color=blue&logo=docker)](https://github.com/yonesora56/plant2human/tree/main/.devcontainer)
 
-# Gene Expression Analysis Workflow in Complex Microbiomes
+# Gene Expression Analysis Workflow in Complex Microbiomes (work-in-progress)
+
+&nbsp;
 
 ## Workflow Schema 
 - more details: [Optimization of Mapping Tools and Investigation of Ribosomal RNA Influence for Data-Driven Gene Expression Analysis in Complex Microbiomes](https://doi.org/10.3390/microorganisms13050995)
 
 ![image](./image/microorganisms-13-00995-g001.png)
+
+&nbsp;
+
+## Progress in Workflow Implementation
+
+![CWLization](./image/workflow_cwlization.png)
 
 &nbsp;
 
@@ -30,6 +38,7 @@ GitHub: https://github.com/RyoMameda/workflow
 ### 3. Test dataset
 
 - If you are testing with the following files, please place them in the `Data` directory!
+- 
 
 #### Metagenome data
 
@@ -43,9 +52,7 @@ GitHub: https://github.com/RyoMameda/workflow
 
 &nbsp;
 
-### 4. Data to be prepared in advance (for annotation)
-
-- Please place it in the `Data` directory!
+### 4. Data to be prepared in advance except FASTQ files
 
 ```bash
 # rRNA data from SILVA website (release138.1; accessed on 17,September,2025)
@@ -55,9 +62,41 @@ curl -O https://ftp.arb-silva.de/release_138.1/Exports/SILVA_138.1_SSUParc_tax_s
 # Swiss-Prot data from UniProt for diamond makedb process (accessed on 17,September,2025)
 curl -O https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
 
-# Pfam data from InterPro (accessed on 17,September,2025)) for hmmscan proess
-curl -O https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+# Pfam data from InterPro (accessed on 17,September,2025)) for hmmscan proess (on going)
+# curl -O https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
 ```
+
+&nbsp;
+
+### 5. Workflow Component
+
+This analysis workflow is broadly divided into two components: one for processing metagenome data and another for processing metatranscriptome data.
+These two components are still under development, but our goal is to eventually combine them and create them as an analysis workflow.
+
+&nbsp;
+
+#### Metagenomic analysis workflow
+
+In this process, the following steps are performed:
+
+
+1. Trimming using `fastp`
+2. Assembly process using `megahit`. 
+3. Prediction Protein sequences using `prodigal`.
+4. Mapping process using `bwa mem`.
+5. Annotation using `BLAST`, `diamond`, `custom python script`.
+6. Calculation of GPM (Genes per million)
+
+&nbsp;
+
+#### Metatranscriptomic analysis workflow
+
+In this process, the following steps are performed:
+
+1. Trimming using `fastp`
+2. Mapping process using `bwa mem`.
+3. Counted mapped reads using `Subread`
+4. Calculation of TPM (Transcripts per million)
 
 &nbsp;
 
