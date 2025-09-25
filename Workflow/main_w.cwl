@@ -231,7 +231,7 @@ outputs:
     type: File
     label: "Output GTF file"
     doc: "GTF file contains gene annotation of metagenomic contigs"
-    outputSource: MAPPING/BAM_FLAGSTAT
+    outputSource: ANNOTATION/OUTPUT_GTF_FILE
 
   - id: READ_COUNT
     type: File
@@ -243,7 +243,3 @@ outputs:
 $namespaces:
   s: https://schema.org/
   edam: https://edamontology.org/
-
-
-      
-
