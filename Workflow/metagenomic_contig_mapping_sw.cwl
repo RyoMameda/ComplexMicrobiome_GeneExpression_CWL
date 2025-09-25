@@ -7,7 +7,8 @@ doc: |
   It executes 2 processes: contig construction and protein prediction.
   related CWL file:
   ./Tools/06_bwa_mem.cwl
-  ./Tools/07_samtools_sort.cwl"
+  ./Tools/07_samtools_sort.cwl
+  ./Tools/08_samtools_flagstat.cwl"
 
 requirements:
   WorkReuse:

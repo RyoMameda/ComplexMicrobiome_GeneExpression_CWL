@@ -12,28 +12,16 @@ requirements:
   WorkReuse:
     enableReuse: true
   ShellCommandRequirement: {}
+  InlineJavascriptRequirement: {}
 
 arguments:
   - shellQuote: false
     valueFrom: |
-      mkdir -p $(inputs.index_bwa_dir_name)
-      touch $(inputs.index_bwa_dir_name)/$(inputs.index_bwa_name) # create empty file
-      bwa index -p $(inputs.index_bwa_dir_name)/$(inputs.index_bwa_name) $(inputs.input_fasta_file.path)
+      mkdir -p index_$(inputs.input_fasta_file.basename.replace(/\.(gz|bz2|fa|fasta|fna|faa)$/, ''))_dir
+      touch index_$(inputs.input_fasta_file.basename.replace(/\.(gz|bz2|fa|fasta|fna|faa)$/, ''))_dir/index_$(inputs.input_fasta_file.basename.replace(/\.(gz|bz2|fa|fasta|fna|faa)$/, '')) # create empty file
+      bwa index -p index_$(inputs.input_fasta_file.basename.replace(/\.(gz|bz2|fa|fasta|fna|faa)$/, ''))_dir/index_$(inputs.input_fasta_file.basename.replace(/\.(gz|bz2|fa|fasta|fna|faa)$/, '')) $(inputs.input_fasta_file.path)
 
 inputs:
-
-  - id: index_bwa_dir_name
-    type: string
-    label: "index bwa dir name"
-    doc: "index files will be contained in this directry"
-    default: "index_bwa_dir"
-
-  - id: index_bwa_name
-    type: string
-    label: "index bwa name"
-    doc: "index files' name for BWA-MEM"
-    default: "index_bwa"
-
   - id: input_fasta_file
     type: File
     label: "input dna fasta file"
@@ -55,14 +43,14 @@ outputs:
     label: "index bwa dir"
     doc: "index files will be contained in this directry"
     outputBinding:
-      glob: "$(inputs.index_bwa_dir_name)"
+      glob: index_$(inputs.input_fasta_file.basename.replace(/\.(gz|bz2|fa|fasta|fna|faa)$/, ''))_dir
 
   - id: index_bwa_files
     type: File
     label: "index bwa files"
     doc: "index files' name for BWA-MEM"
     outputBinding:
-      glob: "$(inputs.index_bwa_dir_name)/$(inputs.index_bwa_name)"
+      glob: index_$(inputs.input_fasta_file.basename.replace(/\.(gz|bz2|fa|fasta|fna|faa)$/, ''))_dir/index_$(inputs.input_fasta_file.basename.replace(/\.(gz|bz2|fa|fasta|fna|faa)$/, ''))
     secondaryFiles:
       - .amb
       - .ann
