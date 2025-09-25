@@ -88,7 +88,7 @@ inputs:
     doc: "Protein fasta file for diamond index"
     default:
       class: File
-      location: ../Data/uniprot_sprot.fasta
+      location: ../Data/uniprot_sprot.fasta.gz
   - id: GTF_FILE_NAME
     type: string
     label: "Output GTF file name"
@@ -146,7 +146,7 @@ steps:
       FASTQ_1: TRIMMING_MAP/out_fastq1
       FASTQ_2: TRIMMING_MAP/out_fastq2
       THREADS: THREADS
-      INDEX_BWA_FILENAME: CONTIG_INDEX/index_bwa_dir
+      INDEX_BWA_FILENAME: CONTIG_INDEX/index_bwa_files
     out: [MAPPING_BAM, BAM_FLAGSTAT]
 
   - id: ANNOTATION
