@@ -4,28 +4,26 @@ THREADS: 16
 # FASTQ inputs
 CONTIG_FASTQ_1:
   class: File
-  location: SRR20140048_1.fastq.gz
+  location: ../Data/SRR20140048_1.fastq.gz
 
 CONTIG_FASTQ_2:
   class: File
-  location: SRR20140048_2.fastq.gz
+  location: ../Data/SRR20140048_2.fastq.gz
 
 MAP_FASTQ_1:
   class: File
-  location: SRR20140048_1.fastq.gz
+  location: ../Data/SRR20140048_1.fastq.gz
 
 MAP_FASTQ_2:
   class: File
-  location: SRR20140048_2.fastq.gz
+  location: ../Data/SRR20140048_2.fastq.gz
 
 # trimming parameters
 TRIM_QUALITY: 20
 TRIM_TAIL: 1
 
 # MEGAHIT outputs
-MEGAHIT_OUTPUT_DIR:
-  class: string
-  location: contigSRR20140048
+MEGAHIT_OUTPUT_DIR: contigSRR20140048
 
 # annotation settings
 EVALUE: 0.1
@@ -42,6 +40,4 @@ DIAMOND_FASTA_FILE:
   class: File
   location: ../Data/uniprot_sprot.fasta.gz
 
-SW_OUTPUT_GTF_FILE_NAME: 
-  class: string
-  location: contigSRR20140048_annotation.gtf
+GTF_FILE_NAME: contigSRR20140048_annotation.gtf
