@@ -22,7 +22,14 @@ This analysis focuses on transcriptional profiling of complex microbiomes. It re
 
 &nbsp;
 
-### 2. Workflow Component
+### 2. Minimum Requirements
+
+- `Docker`
+- `cwltool`
+
+&nbsp;
+
+### 3. Workflow Component
 
 This analysis workflow is composed of three sub-workflows; metagenomic contig assembling, reads mapping and annotation. 
 
@@ -58,9 +65,10 @@ In this process, the following steps are performed:
 
 &nbsp;
 
-### 3. Test dataset
+### 4. Test Dataset and Your Own Dataset
 
 - If you are testing with the following files, please place them in the `Data` directory!
+- You can also obtain metagenomic and metatranscriptomic FASTQ files by downloading from public databases or obtaining your interested samples, then put them on your `Data` directory.
 
 #### Metagenome data
 
@@ -74,7 +82,7 @@ In this process, the following steps are performed:
 
 &nbsp;
 
-### 4. Annotation References
+### 5. Annotation References
 
 - These references are used on BLAST and DIAMOND processes. Downloaded files are available on `Data` directory (accessed on 17,September,2025). If you want to use the latest vesions of references, please download using following scripts.
 
@@ -92,112 +100,18 @@ curl -O https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgeb
 
 &nbsp;
 
-### 5. Command Execution
+### 6. Command Execution
 
 ```bash
 # main workflow
-# Download or obtain your own metagenomic an d metatranscriptomic FASTQ files, then .
 
-cwltool --debug --outdir <output directory> ./Worlkflow/annotation_sw.cwl ./config/annotation_sw_test_config.yml
-
-# mapping sub-workflow
-cwltool --debug --outdir <output directory> ./Worlkflow/metagenomic_contig_mapping_sw.cwl 
+cwltool --debug --outdir <output directory> ./Worlkflow/main_w.cwl ./config/main_w.yml
 
 ```
 
 &nbsp;
 
-### 1. based shell script & python script
+### 7. based shell script & python script
 
 GitHub: https://github.com/RyoMameda/workflow
 
-&nbsp;
-
-### 2. Minimum Requirements
-
-- `Docker`
-- `cwltool`
-
-&nbsp;
-
-### 3. Test dataset
-
-- If you are testing with the following files, please place them in the `Data` directory!
-- 
-
-#### Metagenome data
-
-- [SRR27548858](https://www.ncbi.nlm.nih.gov/sra/?term=SRR27548858)
-
-#### Metatranscriptome data
-
-- [SRR27548863](https://www.ncbi.nlm.nih.gov/sra/?term=SRR27548863)
-- [SRR27548864](https://www.ncbi.nlm.nih.gov/sra/?term=SRR27548864)
-- [SRR27548865](https://www.ncbi.nlm.nih.gov/sra/?term=SRR27548865)
-
-&nbsp;
-
-### 4. Data to be prepared in advance except FASTQ files
-
-```bash
-# rRNA data from SILVA website (release138.1; accessed on 17,September,2025)
-curl -O https://ftp.arb-silva.de/release_138.1/Exports/SILVA_138.1_LSUParc_tax_silva.fasta.gz
-curl -O https://ftp.arb-silva.de/release_138.1/Exports/SILVA_138.1_SSUParc_tax_silva.fasta.gz
-
-# Swiss-Prot data from UniProt for diamond makedb process (accessed on 17,September,2025)
-curl -O https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
-
-# Pfam data from InterPro (accessed on 17,September,2025)) for hmmscan proess (on going)
-# curl -O https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
-```
-
-&nbsp;
-
-### 5. Workflow Component
-
-This analysis workflow is composed of three major sub-workflows; metagenomic contig construction, reads mapping and annotation. 
-
-&nbsp;
-
-#### Metagenomic analysis workflow
-
-In this process, the following steps are performed:
-
-
-1. Trimming using `fastp`
-2. Assembly process using `megahit`. 
-3. Prediction Protein sequences using `prodigal`.
-4. Mapping process using `bwa mem`.
-5. Annotation using `BLAST`, `diamond`, `custom python script`.
-6. Calculation of GPM (Genes per million)
-
-&nbsp;
-
-#### Metatranscriptomic analysis workflow
-
-In this process, the following steps are performed:
-
-1. Trimming using `fastp`
-2. Mapping process using `bwa mem`.
-3. Counted mapped reads using `Subread`
-4. Calculation of TPM (Transcripts per million)
-
-&nbsp;
-
-### 6. Command Execution (sub-workflow)
-
-```bash
-# annotation sub-workflow
-# Download the metagenome FASTQ files, then run processing with fastp, megahit, and prodigal before proceeding with this operation.
-
-cwltool --debug --outdir <output directory> ./Worlkflow/annotation_sw.cwl ./config/annotation_sw_test_config.yml
-
-# mapping sub-workflow
-cwltool --debug --outdir <output directory> ./Worlkflow/metagenomic_contig_mapping_sw.cwl 
-
-```
-
-
-### Analysis Workflow Article
-
-[Optimization of Mapping Tools and Investigation of Ribosomal RNA Influence for Data-Driven Gene Expression Analysis in Complex Microbiomes](https://doi.org/10.3390/microorganisms13050995)
