@@ -68,7 +68,7 @@ In this process, the following steps are performed:
 ### 4. Test Dataset and Your Own Dataset
 
 - If you are testing with the following files, please place them in the `Data` directory!
-- You can also obtain metagenomic and metatranscriptomic FASTQ files by downloading from public databases or obtaining your interested samples, then put them on your `Data` directory.
+- You can also obtain metagenomic and metatranscriptomic FASTQ files either by downloading them from public databases or by using your own samples, and then place them in your `Data` directory.
 
 #### Metagenome data
 
@@ -84,7 +84,7 @@ In this process, the following steps are performed:
 
 ### 5. Annotation References
 
-- These references are used on BLAST and DIAMOND processes. Downloaded files are available on `Data` directory (accessed on 17,September,2025). If you want to use the latest vesions of references, please download using following scripts.
+These reference files are used in the BLAST and DIAMOND processes. The downloaded files are available in the `Data` directory (accessed on September 17, 2025). If you wish to use the latest versions of the references, please download them using the following scripts.
 
 ```bash
 # rRNA data from SILVA website (release138.1; accessed on 17,September,2025)
@@ -102,10 +102,12 @@ curl -O https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgeb
 
 ### 6. Command Execution
 
+We recommend creating a `cache` directory to store cache and intermediate files. Since metagenomic and metatranscriptomic reads are mapped to contigs, the assembled results can be reused to reduce analytical costs. The `cwltool` properly recognizes caches when the `--cachedir` option is specified.
+
 ```bash
 # main workflow
 
-cwltool --debug --outdir <output directory> ./Worlkflow/main_w.cwl ./config/main_w.yml
+cwltool --debug --cachedir <cache directory> --outdir <output directory> ./Worlkflow/main_w.cwl ./config/main_w.yml
 
 ```
 
