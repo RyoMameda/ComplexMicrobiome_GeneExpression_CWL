@@ -3,9 +3,10 @@
 ![Status](https://img.shields.io/badge/status-development-yellow)
 [![cwltool](https://img.shields.io/badge/cwltool-3.1.20250110105449-success)](https://github.com/common-workflow-language/cwltool/releases/tag/3.1.20250110105449)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+![Version](https://img.shields.io/badge/version-1.0-brightgreen)
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=python3.11&color=blue&logo=docker)](https://github.com/yonesora56/plant2human/tree/main/.devcontainer)
 
-# Gene Expression Analysis Workflow in Complex Microbiomes (work-in-progress)
+# Gene Expression Analysis Workflow in Complex Microbiomes
 
 &nbsp;
 
@@ -16,15 +17,9 @@
 
 &nbsp;
 
-## Progress in Workflow Implementation
+### 1. Overview of the Workflow
 
-![CWLization](./image/workflow_cwlization.png)
-
-&nbsp;
-
-### 1. based shell script & python script
-
-GitHub: https://github.com/RyoMameda/workflow
+This analysis focuses on transcriptional profiling of complex microbiomes. It requires both metagenomic and metatranscriptomic NGS short-read data, along with annotation reference information (e.g., ribosomal RNA sequences and referenced protein databases, listed below). The metagenomic and metatranscriptomic reads should be derived from the same microbiome samples. Assembled metagenomic contigs are then used as reference sequences to map both types of reads, enabling gene-level quantification.
 
 &nbsp;
 
@@ -35,10 +30,46 @@ GitHub: https://github.com/RyoMameda/workflow
 
 &nbsp;
 
-### 3. Test dataset
+### 3. Workflow Component
+
+This analysis workflow is composed of three sub-workflows; metagenomic contig assembling, reads mapping and annotation. 
+
+&nbsp;
+
+#### Metagenomic contig assembling
+
+In this process, the following steps are performed:
+
+
+1. Assembly process using `Megahit`. 
+2. Prediction Protein sequences using `Prodigal`.
+3. Statical analysis of contigs useing `SeqKit`.
+
+&nbsp;
+
+#### Reads mapping
+
+In this process, the following steps are performed:
+
+1. Mapping process using `BWA MEM`.
+2. Statical analysis of mapping results using `SAMtools`
+
+&nbsp;
+
+#### Annotation
+
+In this process, the following steps are performed:
+
+1. Searching contaminated ribosomal RNA sequences using `BLAST`.
+2. Searching referenced proteins using `DIAMOND`.
+3. Creation GTF formated file contained annotation informations.
+
+&nbsp;
+
+### 4. Test Dataset and Your Own Dataset
 
 - If you are testing with the following files, please place them in the `Data` directory!
-- 
+- You can also obtain metagenomic and metatranscriptomic FASTQ files either by downloading them from public databases or by using your own samples, and then place them in your `Data` directory.
 
 #### Metagenome data
 
@@ -52,7 +83,9 @@ GitHub: https://github.com/RyoMameda/workflow
 
 &nbsp;
 
-### 4. Data to be prepared in advance except FASTQ files
+### 5. Annotation References
+
+These reference files are used in the BLAST and DIAMOND processes. The downloaded files are available in the `Data` directory (accessed on September 17, 2025). If you wish to use the latest versions of the references, please download them using the following scripts.
 
 ```bash
 # rRNA data from SILVA website (release138.1; accessed on 17,September,2025)
@@ -62,58 +95,27 @@ curl -O https://ftp.arb-silva.de/release_138.1/Exports/SILVA_138.1_SSUParc_tax_s
 # Swiss-Prot data from UniProt for diamond makedb process (accessed on 17,September,2025)
 curl -O https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
 
-# Pfam data from InterPro (accessed on 17,September,2025)) for hmmscan proess (on going)
+# Pfam data from InterPro (accessed on 17,September,2025)) for hmmscan proess. Appling HMMER process in this workflow is on going, however this process takes time. This step will be optional.
 # curl -O https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
 ```
 
 &nbsp;
 
-### 5. Workflow Component
+### 6. Command Execution
 
-This analysis workflow is broadly divided into two components: one for processing metagenome data and another for processing metatranscriptome data.
-These two components are still under development, but our goal is to eventually combine them and create them as an analysis workflow.
-
-&nbsp;
-
-#### Metagenomic analysis workflow
-
-In this process, the following steps are performed:
-
-
-1. Trimming using `fastp`
-2. Assembly process using `megahit`. 
-3. Prediction Protein sequences using `prodigal`.
-4. Mapping process using `bwa mem`.
-5. Annotation using `BLAST`, `diamond`, `custom python script`.
-6. Calculation of GPM (Genes per million)
-
-&nbsp;
-
-#### Metatranscriptomic analysis workflow
-
-In this process, the following steps are performed:
-
-1. Trimming using `fastp`
-2. Mapping process using `bwa mem`.
-3. Counted mapped reads using `Subread`
-4. Calculation of TPM (Transcripts per million)
-
-&nbsp;
-
-### 6. Command Execution (sub-workflow)
+We recommend creating a `cache` directory to store cache and intermediate files. Since metagenomic and metatranscriptomic reads are mapped to contigs, the assembled results can be reused to reduce analytical costs. The `cwltool` properly recognizes caches when the `--cachedir` option is specified.
 
 ```bash
-# annotation sub-workflow
-# Download the metagenome FASTQ files, then run processing with fastp, megahit, and prodigal before proceeding with this operation.
+# main workflow
 
-cwltool --debug --outdir <output directory> ./Worlkflow/annotation_sw.cwl ./config/annotation_sw_test_config.yml
-
-# mapping sub-workflow
-cwltool --debug --outdir <output directory> ./Worlkflow/metagenomic_contig_mapping_sw.cwl 
+cwltool --debug --cachedir <cache directory> --outdir <output directory> ./Worlkflow/main_w.cwl ./config/main_w.yml
 
 ```
 
+&nbsp;
 
-### Analysis Workflow Article
+### 7. based shell script & python script
 
-[Optimization of Mapping Tools and Investigation of Ribosomal RNA Influence for Data-Driven Gene Expression Analysis in Complex Microbiomes](https://doi.org/10.3390/microorganisms13050995)
+GitHub: https://github.com/RyoMameda/workflow
+
+This workflow is developed at [DBCLS BioHackathon 2025](https://github.com/dbcls/bh25/), and the preprint of developing project is https://doi.org/10.37044/osf.io/qd5sz_v1.
