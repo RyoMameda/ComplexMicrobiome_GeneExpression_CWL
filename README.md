@@ -3,7 +3,7 @@
 ![Status](https://img.shields.io/badge/status-development-yellow)
 [![cwltool](https://img.shields.io/badge/cwltool-3.1.20250110105449-success)](https://github.com/common-workflow-language/cwltool/releases/tag/3.1.20250110105449)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-![Version](https://img.shields.io/badge/version-1.0-brightgreen)
+[![Version](https://img.shields.io/badge/version-1.0-brightgreen)](https://github.com/RyoMameda/ComplexMicrobiome_GeneExpression_CWL/releases/tag/v1.0)
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=python3.11&color=blue&logo=docker)](https://github.com/yonesora56/plant2human/tree/main/.devcontainer)
 
 # Gene Expression Analysis Workflow in Complex Microbiomes
