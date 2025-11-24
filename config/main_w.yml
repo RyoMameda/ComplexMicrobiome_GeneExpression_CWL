@@ -1,22 +1,22 @@
 # Common parameters
-THREADS: 16
+THREADS: 8
 
 # FASTQ inputs
 CONTIG_FASTQ_1:
   class: File
-  location: ../Data/SRR27548858_1.fastq.gz
+  location: ../Data/SRR20140048_1.fastq.gz
 
 CONTIG_FASTQ_2:
   class: File
-  location: ../Data/SRR27548858_2.fastq.gz
+  location: ../Data/SRR20140048_2.fastq.gz
 
 MAP_FASTQ_1:
   class: File
-  location: ../Data/SRR27548858_1.fastq.gz
+  location: ../Data/SRR20140048_1.fastq.gz
 
 MAP_FASTQ_2:
   class: File
-  location: ../Data/SRR27548858_2.fastq.gz
+  location: ../Data/SRR20140048_2.fastq.gz
 
 # trimming parameters
 TRIM_QUALITY: 20
