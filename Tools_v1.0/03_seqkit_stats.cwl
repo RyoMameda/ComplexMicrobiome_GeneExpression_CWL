@@ -8,8 +8,6 @@ doc: |
   Original script: https://github.com/RyoMameda/workflow/blob/main/03_assembly.sh"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
   InlineJavascriptRequirement: {}
 
 baseCommand: [seqkit, stats]

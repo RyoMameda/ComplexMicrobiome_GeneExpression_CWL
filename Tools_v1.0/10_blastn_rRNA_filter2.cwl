@@ -9,8 +9,6 @@ doc: |
   original command: seqkit grep -v -f ${f}_rRNA_toplist.txt ${f}.faa > ${f}-rRNA.faa"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
   InlineJavascriptRequirement: {}
 
 baseCommand: [seqkit, grep]

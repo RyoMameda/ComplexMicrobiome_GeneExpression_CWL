@@ -8,8 +8,6 @@ doc: |
   original command: bwa mem -t ${threads} index_${f}_bwa ${fqdir}/${mgfq}_1_trim.fastq.gz ${fqdir}/${mgfq}_2_trim.fastq.gz"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
   InlineJavascriptRequirement: {}
 
 baseCommand: [bwa, mem]

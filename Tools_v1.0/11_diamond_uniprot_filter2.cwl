@@ -8,8 +8,6 @@ doc: |
   original command: seqkit grep -v -f ${f}_list-rRNA-uniprot.txt ${f}-rRNA.faa > ${f}-rRNA-uniprot.faa"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
   InlineJavascriptRequirement: {}
 
 baseCommand: [seqkit, grep]

@@ -9,8 +9,6 @@ doc: |
   original command: blastn -num_threads ${threads} -db ${db}/${rrna} -query ${f}.fna -out ${f}_${rrna}.txt -outfmt "6 qseqid sseqid stitle evalue" -max_target_seqs 1 -evalue 0.1"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
 
 baseCommand: [blastn]
 

@@ -8,8 +8,6 @@ doc: |
   original command: samtools flagstat -@ ${threads} mg_${bam}.bam > flagstat_mg_${bam}"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
   InlineJavascriptRequirement: {}
 
 baseCommand: [samtools, flagstat]

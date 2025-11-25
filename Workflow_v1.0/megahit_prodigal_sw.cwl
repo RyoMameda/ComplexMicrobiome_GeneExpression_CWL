@@ -12,8 +12,6 @@ doc: |
   ./Tools/04_prodigal.cwl"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
   InlineJavascriptRequirement: {}
   StepInputExpressionRequirement: {}
 

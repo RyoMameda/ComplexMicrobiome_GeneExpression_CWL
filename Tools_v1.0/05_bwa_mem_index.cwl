@@ -9,8 +9,6 @@ doc: |
   original command: bwa index -p index_${f}_bwa ${f}.fna"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
   ShellCommandRequirement: {}
   InlineJavascriptRequirement: {}
 

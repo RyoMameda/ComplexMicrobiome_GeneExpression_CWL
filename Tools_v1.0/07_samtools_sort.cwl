@@ -8,8 +8,6 @@ doc: |
   original command: samtools sort -@ ${threads} > mg_${bam}.bam"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
   InlineJavascriptRequirement: {}
 
 baseCommand: [samtools, sort]

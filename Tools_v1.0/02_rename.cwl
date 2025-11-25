@@ -6,8 +6,6 @@ doc: |
   "assembled contig rename process"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
 
 baseCommand: [cp]
 

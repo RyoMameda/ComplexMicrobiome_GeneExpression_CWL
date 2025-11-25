@@ -10,8 +10,6 @@ doc: |
 baseCommand: [megahit]
 
 requirements:
-  WorkReuse:
-    enableReuse: true
   InlineJavascriptRequirement: {}
 
 arguments:

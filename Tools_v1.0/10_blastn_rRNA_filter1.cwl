@@ -14,8 +14,6 @@ doc: |
 requirements:
   ShellCommandRequirement: {}
   InlineJavascriptRequirement: {}
-  WorkReuse:
-    enableReuse: true
 
 inputs:
   - id: blastn_result_file1

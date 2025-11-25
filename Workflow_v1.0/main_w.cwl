@@ -14,8 +14,6 @@ doc: |
 
 requirements:
   SubworkflowFeatureRequirement: {}
-  WorkReuse:
-    enableReuse: true
 
 
 inputs:

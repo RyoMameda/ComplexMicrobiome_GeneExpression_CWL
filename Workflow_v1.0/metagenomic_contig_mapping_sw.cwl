@@ -11,8 +11,6 @@ doc: |
   ./Tools/08_samtools_flagstat.cwl"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
 
 
 inputs:

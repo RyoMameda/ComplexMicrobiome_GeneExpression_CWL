@@ -7,8 +7,6 @@ doc: |
   Original script: https://github.com/RyoMameda/workflow/blob/main/08_quantification.sh"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
   InlineJavascriptRequirement: {}
 
 baseCommand: [featureCounts]

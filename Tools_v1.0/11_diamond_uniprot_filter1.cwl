@@ -10,8 +10,6 @@ doc: |
 requirements:
   ShellCommandRequirement: {}
   InlineJavascriptRequirement: {}
-  WorkReuse:
-    enableReuse: true
 
 inputs:
   - id: diamond_alignment_result_file

@@ -12,8 +12,6 @@ doc: |
   ./Tools/11_diamond_uniprot_filter2.cwl"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
 
 inputs:
 ############## Common Parameters ##############

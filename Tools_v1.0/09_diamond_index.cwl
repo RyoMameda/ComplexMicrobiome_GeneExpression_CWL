@@ -8,8 +8,6 @@ doc: |
   original command: diamond makedb -in uniprot_sprot.fasta -db uniprot_sprot --threads ${threads}"
 
 requirements:
-  WorkReuse:
-    enableReuse: true
 
 baseCommand: [diamond, makedb]
 

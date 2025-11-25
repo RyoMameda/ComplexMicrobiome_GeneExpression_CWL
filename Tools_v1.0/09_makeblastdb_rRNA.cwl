@@ -8,8 +8,6 @@ doc: |
 
 requirements:
   ShellCommandRequirement: {}
-  WorkReuse:
-    enableReuse: true
 
 inputs:
   - id: index_dir_name
