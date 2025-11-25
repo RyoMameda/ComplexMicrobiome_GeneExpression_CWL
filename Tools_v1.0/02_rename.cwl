@@ -5,7 +5,7 @@ label: "rename process"
 doc: |
   "assembled contig rename process"
 
-requirements:
+requirements: []
 
 baseCommand: [cp]
 

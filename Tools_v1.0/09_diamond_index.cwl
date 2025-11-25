@@ -7,7 +7,7 @@ doc: |
   original script: https://github.com/RyoMameda/workflow/blob/main/06_get_ref.sh
   original command: diamond makedb -in uniprot_sprot.fasta -db uniprot_sprot --threads ${threads}"
 
-requirements:
+requirements: []
 
 baseCommand: [diamond, makedb]
 

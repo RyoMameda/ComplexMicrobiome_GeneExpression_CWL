@@ -7,7 +7,7 @@ doc: |
   original script: scripts/07_annotation_modified.sh
   original command: diamond blastp -p ${threads} -d ${db}/${swissprot} -o ${f}-rRNA_uniprot.txt -f 6 qseqid sseqid stitle evalue --quiet -q ${f}-rRNA.faa --top 1 -e 0.1 --sensitive --iterate"
 
-requirements:
+requirements: []
 
 baseCommand: [diamond, blastp]
 

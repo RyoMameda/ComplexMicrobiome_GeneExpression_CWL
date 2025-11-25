@@ -13,7 +13,7 @@ doc: |
   ./Tools/10_blastn_rRNA_filter2.cwl
   ./Tools/10_blastn_rRNA_filter3.cwl"
 
-requirements:
+requirements: []
 
 inputs:
 ############## Parameters for makeblastdb (./Tools/09_makeblastdb_rRNA.cwl) ##############

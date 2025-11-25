@@ -7,7 +7,7 @@ doc: |
   original script: scripts/07_annotation_modified.sh
   original command: 07_1_faablast2gtf4tpm.py --faa ${f}.faa --rrna ${f}_rRNAlist.txt --uniprot ${f}-rRNA_uniprot.txt -o ${f}_annotation.gtf"
 
-requirements:
+requirements: []
 
 baseCommand: [python3]
 

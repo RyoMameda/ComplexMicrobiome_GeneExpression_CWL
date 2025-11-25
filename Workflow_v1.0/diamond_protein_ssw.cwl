@@ -11,7 +11,7 @@ doc: |
   ./Tools/11_diamond_uniprot_filter1.cwl
   ./Tools/11_diamond_uniprot_filter2.cwl"
 
-requirements:
+requirements: []
 
 inputs:
 ############## Common Parameters ##############

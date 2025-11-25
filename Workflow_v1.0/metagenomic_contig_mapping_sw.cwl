@@ -10,8 +10,7 @@ doc: |
   ./Tools/07_samtools_sort.cwl
   ./Tools/08_samtools_flagstat.cwl"
 
-requirements:
-
+requirements: []
 
 inputs:
 ############## Common Parameters ##############
